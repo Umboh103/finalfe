@@ -1,0 +1,28 @@
+{
+  "heroes": [
+    {
+      "id": "4940",
+      "name": "Layla",
+      "role": "Marksman",
+      "specialty": "Burst Damage",
+      "difficulty": "Easy",
+      "image": "https://tse1.mm.bing.net/th/id/OIP.yNqf0yzCe77vhoqABUlg0gHaEK?pid=Api&P=0&h=220"
+    },
+    {
+      "id": "9b37",
+      "name": "Diggie",
+      "role": "Support",
+      "specialty": "Anti cc",
+      "difficulty": "Medium",
+      "image": "https://tse4.mm.bing.net/th/id/OIP.KxIc0BYEXEcUj2JuoBOVlAHaEK?pid=Api&P=0&h=220"
+    },
+    {
+      "id": "0158",
+      "name": "Lancelot",
+      "role": "Assassin",
+      "specialty": "Burst",
+      "difficulty": "Hard",
+      "image": "https://tse1.mm.bing.net/th/id/OIP.BYw6URyr5j9ShEZs59iI8gHaEH?pid=Api&P=0&h=220"
+    }
+  ]
+}
