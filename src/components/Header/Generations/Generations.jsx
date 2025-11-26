@@ -1,4 +1,5 @@
 import React from "react";
+import { Shield, Swords, Zap, Wand2, Target, Heart } from "lucide-react";
 
 export const HERO_ROLES = [
   "Tank",
@@ -9,37 +10,49 @@ export const HERO_ROLES = [
   "Support",
 ];
 
+const roleIcons = {
+  Tank: Shield,
+  Fighter: Swords,
+  Assassin: Zap,
+  Mage: Wand2,
+  Marksman: Target,
+  Support: Heart,
+};
+
 const Generations = ({ selectedRole, onSelectRole }) => {
   return (
-    <div className="flex flex-wrap justify-center gap-3 py-4 bg-slate-900/50 rounded-xl backdrop-blur-sm border border-slate-800/50 mb-8">
- 
-      <button
-        onClick={() => onSelectRole("All")}
-        className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 border tracking-wider
-          ${
-            selectedRole === "All"
-              ? "bg-blue-600 text-white border-blue-500 shadow-[0_0_15px_rgba(37,99,235,0.5)]"
-              : "bg-slate-800 text-slate-400 border-slate-700 hover:bg-slate-700 hover:text-blue-300 hover:border-blue-500/50"
-          }`}
-      >
-        ALL
-      </button>
-
-     
-      {HERO_ROLES.map((role) => (
+    <div className="glass rounded-2xl p-6 mb-8 animate-fadeIn">
+      <div className="flex flex-wrap justify-center gap-3">
+        {/* All Button */}
         <button
-          key={role}
-          onClick={() => onSelectRole(role)}
-          className={`px-6 py-2 rounded-full text-sm font-bold transition-all duration-300 border tracking-wider
-            ${
-              selectedRole === role
-                ? "bg-purple-600 text-white border-purple-500 shadow-[0_0_15px_rgba(147,51,234,0.5)]"
-                : "bg-slate-800 text-slate-400 border-slate-700 hover:bg-slate-700 hover:text-purple-300 hover:border-purple-500/50"
+          onClick={() => onSelectRole("All")}
+          className={`btn-ripple px-6 py-3 rounded-full text-sm font-bold transition-all duration-300 border-2 tracking-wider flex items-center gap-2 ${selectedRole === "All"
+              ? "bg-gradient-to-r from-blue-600 to-blue-500 text-white border-blue-400 shadow-lg glow-blue scale-105"
+              : "bg-slate-800/80 text-slate-300 border-slate-600 hover:bg-slate-700 hover:text-blue-300 hover:border-blue-500/50 hover:scale-105"
             }`}
         >
-          {role.toUpperCase()}
+          <span className="text-lg">⚡</span>
+          ALL HEROES
         </button>
-      ))}
+
+        {/* Role Buttons */}
+        {HERO_ROLES.map((role) => {
+          const Icon = roleIcons[role];
+          return (
+            <button
+              key={role}
+              onClick={() => onSelectRole(role)}
+              className={`btn-ripple px-5 py-3 rounded-full text-sm font-bold transition-all duration-300 border-2 tracking-wider flex items-center gap-2 ${selectedRole === role
+                  ? "bg-gradient-to-r from-purple-600 to-pink-600 text-white border-purple-400 shadow-lg glow-purple scale-105"
+                  : "bg-slate-800/80 text-slate-300 border-slate-600 hover:bg-slate-700 hover:text-purple-300 hover:border-purple-500/50 hover:scale-105"
+                }`}
+            >
+              <Icon className="w-4 h-4" />
+              {role.toUpperCase()}
+            </button>
+          );
+        })}
+      </div>
     </div>
   );
 };
