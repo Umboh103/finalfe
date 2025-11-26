@@ -12,8 +12,8 @@ const queryClient = new QueryClient();
 const App = () => (
   <QueryClientProvider client={queryClient}>
     <BrowserRouter>
-      
-      <div className="min-h-screen flex flex-col bg-slate-900 text-slate-100 font-sans">
+
+      <div className="min-h-screen flex flex-col bg-slate-900 text-slate-100 font-sans bg-pattern relative overflow-x-hidden">
         <Header />
         <main className="flex-1">
           <Routes>
